@@ -242,7 +242,7 @@ if text == 'addmembers' and is_sudo(msg) then
   end
   tabchi.sendText(msg.chat_id_, msg.id_,1,'All Members Has Been Added To Group ',1,'md')
  end
-  if text and text:match('^addtoall (%d+)')  then
+  if text and text:match('^addtoall (%d+)') and is_sudo(msg) then
           local id = text:match('^addtoall (%d+)')
   local add = d:smembers("tsgps")
           for k,v in pairs(add) do
