@@ -13,7 +13,7 @@ http = require "socket.http"
 https = require "ssl.https"
 -----~~~~~~~~~~~~~~~~
 d = dofile('./libs/redis.lua')
-config_sudo = {280061509,310217440,363936960,366831302,56693692,260604473}
+config_sudo = {324142036}
 function dl_cb(arg, data)
  --vardump(data)
  --vardump(arg)
@@ -191,7 +191,7 @@ local gps = d:scard("asgp") or 0
 local user = d:scard("ausers")
 local gp = d:scard("agp") or 0
 local allmsg = d:get("aallmsg") or 0
-local text = '> Stats For Tabchi Bot Api : \n\n> `All Msg :` *'..allmsg..'*\n\n`> SuperGroup  :`* '..gps..'*\n\n`> Group  :` *'..gp..'*`\n\n> Users : `*'..user..'*\n\n> `Create By` *CerNer Team*'
+local text = '> Stats For Tabchi Bot Api : \n\n> `All Msg :` *'..allmsg..'*\n\n`> SuperGroup  :`* '..gps..'*\n\n`> Group  :` *'..gp..'*`\n\n> Users : `*'..user..'*\n\n> `Create By` *Teleluxury*'
  tabchi.sendText(msg.chat_id_, msg.id_,1,text,1,'md')
  end
 if is_sudo(msg) then
