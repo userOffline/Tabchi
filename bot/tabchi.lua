@@ -1,6 +1,6 @@
 tabchi = dofile('./bot/funcation.lua')
 --------------------------------
-tabchi_id = 302538792
+tabchi_id = id Tabchi
 ---------------------------------
 json = dofile('./libs/JSON.lua')
 ---------------------------------
@@ -14,7 +14,7 @@ https = require "ssl.https"
 -----~~~~~~~~~~~~~~~~
 d = dofile('./libs/redis.lua')
 -------------------------------
-config_sudo = {280061509,310217440,363936960,366831302,56693692,260604473}
+config_sudo = {324142036}
 function dl_cb(arg, data)
 end
 function is_sudo(msg)
@@ -131,7 +131,7 @@ end
   local savecontact = (d:get('savecontact') or 'no') 
     if savecontact == 'yes' then
  if msg.content_.ID == "MessageContact" then
-	  tabchi.importContacts(msg.content_.contact_.phone_number_, (msg.content_.contact_.first_name_ or '--'), '#CerNer Team', msg.content_.contact_.user_id_)
+	  tabchi.importContacts(msg.content_.contact_.phone_number_, (msg.content_.contact_.first_name_ or '--'), '#Teleluxury', msg.content_.contact_.user_id_)
         print("ConTact Added")
 local function c(a,b,c) 
   tabchi.sendContact(msg.chat_id_, msg.id_, 0, 1, nil, b.phone_number_, b.first_name_, (b.last_name_ or ''), 0)
@@ -140,7 +140,7 @@ tabchi.getMe(c)
 d:sadd('tcom', msg.content_.contact_.user_id_)
 local text = d:get('pm')
 if not text then
-text = 'Addi Golam Bia Pv :0'
+text = 'Addi pv bash'
 end
         tabchi.sendText(msg.chat_id_, msg.id_, 1, text,1, 'md')
         print("Tabchi [ Message ]")
@@ -180,7 +180,7 @@ local id = d:get('apiid')
           for k,v in pairs(add) do
     tabchi.addChatMember(v, id,20)
   end
-tabchi.sendText(msg.chat_id_, msg.id_, 1,'*Done*', 1, 'md')
+tabchi.sendText(msg.chat_id_, msg.id_, 1,'*انجام شد.*', 1, 'md')
 end
 end
  if text == 'leave gp' and is_sudo(msg) then
@@ -209,13 +209,13 @@ local com = d:scard("tcom") or 0
 local block = d:scard("tblock") or 0
 local allmsg = d:get("tallmsg") or 0
 local link = d:scard('links') or 0 
-local text = '> Stats For Tabchi Bot : \n\n> `All Msg :` *'..allmsg..'*\n\n`> SuperGroup  :`* '..gps..'*\n\n`> Group  :` *'..gp..'*`\n\n> Users : `*'..user..'*\n\n`> Contact  :` *'..com..'*`\n\n> Total Links :` *'..link..'*`\n\n> Blocked :` *'..block..'*\n\n> `Create By` *CerNer Team*'
+local text = '> Stats For Tabchi Bot : \n\n> `All Msg :` *'..allmsg..'*\n\n`> SuperGroup  :`* '..gps..'*\n\n`> Group  :` *'..gp..'*`\n\n> Users : `*'..user..'*\n\n`> Contact  :` *'..com..'*`\n\n> Total Links :` *'..link..'*`\n\n> Blocked :` *'..block..'*\n\n> `Create By` *Teleluxury*'
  tabchi.sendText(msg.chat_id_, msg.id_,1,text,1,'md')
  end
  if text == 'settings' and is_sudo(msg) then
 local pm = d:get('pm')
 if not pm then
-pm = 'Addi Golam Bia Pv :0'
+pm = 'Addi pv bash'
 end
  if d:get('savecontact') then
               co = 'Enable'
@@ -227,7 +227,7 @@ end
             else
               join = 'Disable'
             end
-   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n> Pm  : *'..pm..'*\n\n> Auto Join : *'..join..'*\n> Save Contact : *'..co..'*\n\n`Create By` *CerNer Team*', 1, 'md')
+   tabchi.sendText(msg.chat_id_, msg.id_, 1, '>* Settings For Tabchi Bot :*\n> Pm  : *'..pm..'*\n\n> Auto Join : *'..join..'*\n> Save Contact : *'..co..'*\n\n`Create By` *Teleluxury*', 1, 'md')
         print("Tabchi [ Message ]")
 
 end
@@ -393,6 +393,18 @@ relaod
 بازنگري پلاگين ها
 setname (name)
 تغيير نام تبليغ چي
+
+
+راهنماي کار با سورس تبچي (Api)
+
+fwdsgp
+فوراد برایه تمام سوپر گروه ها
+
+fwdgp
+فوراد برایه تمام گرو ها
+
+fwduser
+فوراد برایه تمام مخاطب ها
 ]]
 tabchi.sendText(msg.chat_id_, msg.id_, 1, check_markdown(text), 1, 'md')
 end
